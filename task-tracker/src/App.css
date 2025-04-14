@@ -1,0 +1,124 @@
+.clickButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.newButton {
+  border: none;
+  background-color: lightblue;
+  height: 1.5em;
+  width: 3.5em;
+  border-radius: 5px;
+  margin-left: 2px;
+  margin-right: 2px;
+  font-weight: 600;
+}
+
+.clickButton button:hover {
+  opacity: 70%;
+}
+
+.modalContainer {
+  
+}
+
+.popupContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position:fixed;
+  inset: 0;
+  z-index: 100;
+}
+
+.popupModal {
+  display: flex;
+  flex-direction: column;
+  background-color: lightcoral;
+  width: 200px;
+  border: 2px solid black;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+
+.titleModalFlex{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  justify-items: center;
+  background-color: lightcoral;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.titleModalFlex button {
+  border: none;
+  background-color: lightcoral;
+  color: grey;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+
+.modalInput {
+  box-sizing: border-box;
+  border: none;
+  background-color: white;
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.textarea {
+  box-sizing: border-box;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.addTaskContainer {
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1px solid gray;
+  padding-top: 7px;
+  
+}
+
+.addTaskContainer .addTaskButton{
+  border: none;
+  background-color: lightblue;
+  border-radius: 5px;
+  margin-left: 2px;
+  margin-right: 2px;
+  margin-bottom: 10px;
+}
+
+.toDoContainer {
+  background-color: lightgreen;
+  margin: 10px;
+}
+
+
+.taskContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.deleteArea {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 7px;
+}
+
+.deleteButton {
+  border: none;
+  background-color: red;
+  border-radius: 5px;
+}
