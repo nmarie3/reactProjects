@@ -15,10 +15,12 @@ function App() {
       <AddTask taskList={taskList} setTaskList={setTaskList}/>
       <p> to add a new task</p>
     </div>
-      <h2>List of Tasks:</h2>
-        {taskList.map((task, i) =>
+      <h2>List of Tasks:</h2> {/*.slice(0).reverse() below changes the map to appear in cronological order. but if you do, you can't use the index as the ToDo key below anymore*/}
+        {taskList.slice(0).reverse().map((task, i) =>
         <>
-          <ToDo key={i} task={task}/>
+          <ToDo key={new Date().getTime()} task={task} index= {i} taskList={taskList} setTaskList={setTaskList}/>
+          {/*above code if not going cronological order: 
+          <ToDo key={i} task={task} index= {i} taskList={taskList} setTaskList={setTaskList}/>*/}
         </>
       )}
     </>

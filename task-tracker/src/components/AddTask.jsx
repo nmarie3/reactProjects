@@ -6,6 +6,7 @@ const AddTask = ({taskList, setTaskList}) => {
     const [addModal, setAddModal] = useState(false);
     const [projectName, setProjectName] = useState("");
     const [taskDescription, setTaskDescription] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
 
     const handleInput = e => {
         const {name, value} = e.target;
@@ -13,17 +14,27 @@ const AddTask = ({taskList, setTaskList}) => {
             const name = e.target.name;
             const value = e.target.value*/}
 
-        if (name === "projectName") setProjectName(value);
+        if (name === "projectName") {
+            setProjectName(value);
+            setErrorMessage("");
+        }
+        if (name === "projectName" && value === "") {
+            setErrorMessage("Enter a project name");
+        }
         if (name=== "taskDescription") setTaskDescription(value);
     }
 
     const handleAdd = e => {
         e.preventDefault();
-        setTaskList([...taskList, {projectName, taskDescription}]
-        );
-        setAddModal(false); {/*this will close the modal after adding*/}
-        setProjectName(""); {/*this will reset the inputs after adding*/}
-        setTaskDescription("");
+        if (!projectName) {
+            setErrorMessage("Enter a project name")
+        }else {
+            setTaskList([...taskList, {projectName, taskDescription}]
+            );
+            setAddModal(false); {/*this will close the modal after adding*/}
+            setProjectName(""); {/*this will reset the inputs after adding*/}
+            setTaskDescription("");
+        }
     }
 
   return (
@@ -57,6 +68,7 @@ const AddTask = ({taskList, setTaskList}) => {
                             value={projectName}
                             onChange={handleInput}
                             required/>
+                            <p className="errorMessage">{errorMessage}</p>
                             <div>
                                 <label>
                                     Task Description

@@ -1,16 +1,26 @@
-import React from 'react'
+import React from 'react';
+import EditTask from './EditTask';
 
-const ToDo = ({task}) => {
+const ToDo = ({task, index, taskList, setTaskList}) => {
+
+    const handleDelete = itemID => {
+      let removeIndex = taskList.indexOf(task);
+      taskList.splice(removeIndex, 1);
+      setTaskList((currentTasks => currentTasks.filter (todo => todo.id !== itemID)))
+    }
+
   return (
     <>
         <div className="toDoContainer">
             <div className="taskContainer">
             <p>{task.projectName}</p>
-            <button>Edit</button>
+            <EditTask task={task} index={index} taskList={taskList} setTaskList={setTaskList}/>
             </div>
             <p>{task.taskDescription}</p>
             <div className="deleteArea">
-                <button className="deleteButton">Delete</button>
+                <button className="deleteButton"
+                onClick={handleDelete}>
+                  Delete</button>
             </div>
         </div>
     </>
