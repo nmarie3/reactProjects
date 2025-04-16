@@ -29,8 +29,17 @@ const AddTask = ({taskList, setTaskList}) => {
         if (!projectName) {
             setErrorMessage("Enter a project name")
         }else {
-            setTaskList([...taskList, {projectName, taskDescription}]
-            );
+            let timestamp =new Date(); {/*add .getTime(); if not using local storage and delete tempList below*/}
+            let tempList = taskList;
+            tempList.push({
+                projectName,
+                taskDescription,
+                timestamp: timestamp,
+                duration: 0
+            })
+            localStorage.setItem("taskListStorage", JSON.stringify(tempList))
+            window.location.reload()
+            {/*remove this when using local storage: setTaskList([...taskList, {projectName, taskDescription, timestamp: timestamp}]);*/}
             setAddModal(false); {/*this will close the modal after adding*/}
             setProjectName(""); {/*this will reset the inputs after adding*/}
             setTaskDescription("");

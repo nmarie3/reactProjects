@@ -26,9 +26,19 @@ useEffect(() => {
         const handleUpdate = e => {
             e.preventDefault();
             let taskIndex =taskList.indexOf(task);
-            taskList.splice(taskIndex, 1);
-            setTaskList([...taskList, {projectName, taskDescription}]
-            );
+            {/*if not using local storage, keep below only: 
+                taskList.splice(taskIndex, 1);*/}
+            taskList.splice(taskIndex, 1, {
+                projectName: projectName,
+                taskDescription: taskDescription,
+                timestamp: task.timestamp,
+                duration: task.duration
+            }); 
+            {/*if not using local storage, just keep this below: 
+                setTaskList([...taskList, {projectName, taskDescription}]
+            ); until setEditModal*/}
+            localStorage.setItem("taskListStorage", JSON.stringify(taskList));
+            window.location.reload();
             setEditModal(false); {/*this will close the modal after adding*/}
 
         }
