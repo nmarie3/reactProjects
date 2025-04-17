@@ -1,0 +1,9 @@
+.formContainer {
+  margin: auto;
+  width: 50%;
+}
+
+.fieldsetContainer {
+  display: flex;
+  flex-direction: column;
+}
