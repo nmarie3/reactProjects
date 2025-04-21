@@ -1,9 +1,16 @@
 .formContainer {
   margin: auto;
-  width: 50%;
+  width: auto;
 }
 
 .fieldsetContainer {
   display: flex;
   flex-direction: column;
+}
+
+
+.deleteButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
